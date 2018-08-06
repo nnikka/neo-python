@@ -111,6 +111,7 @@ class LevelDBBlockchain(Blockchain):
 
         print(TXProcessed)
         print("==========begin===========")
+        print(Blockchain.GenesisBlock())
 
         try:
             self._db = plyvel.DB(self._path, create_if_missing=True)
