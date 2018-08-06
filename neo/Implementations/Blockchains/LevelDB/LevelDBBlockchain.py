@@ -109,6 +109,9 @@ class LevelDBBlockchain(Blockchain):
 
         self.TXProcessed = 0
 
+        print(TXProcessed)
+        print("==========begin===========")
+
         try:
             self._db = plyvel.DB(self._path, create_if_missing=True)
         #            self._db = plyvel.DB(self._path, create_if_missing=True, bloom_filter_bits=16, compression=None)
@@ -119,6 +122,8 @@ class LevelDBBlockchain(Blockchain):
 
         version = self._db.get(DBPrefix.SYS_Version)
 
+        print(version)
+
         if skip_version_check:
             self._db.put(DBPrefix.SYS_Version, self._sysversion)
             version = self._sysversion
@@ -127,6 +132,9 @@ class LevelDBBlockchain(Blockchain):
 
             ba = bytearray(self._db.get(DBPrefix.SYS_CurrentBlock, 0))
             self._current_block_height = int.from_bytes(ba[-4:], 'little')
+
+            print("Block height")
+            print(self._current_block_height)
 
             ba = bytearray(self._db.get(DBPrefix.SYS_CurrentHeader, 0))
             current_header_height = int.from_bytes(ba[-4:], 'little')
@@ -149,6 +157,10 @@ class LevelDBBlockchain(Blockchain):
             except Exception as e:
                 logger.info("Could not get stored header hash list: %s " % e)
 
+            print("hashes")
+            print(len(hashes))
+            print(hashes)
+
             if len(hashes):
                 hashes.sort(key=lambda x: x['k'])
                 genstr = Blockchain.GenesisBlock().Hash.ToBytes()
@@ -169,6 +181,10 @@ class LevelDBBlockchain(Blockchain):
                 for h in headers:
                     if h.Index > 0:
                         self._header_index.append(h.Hash.ToBytes())
+
+            print("heights")
+            print(current_header_hash)
+            print(self._stored_header_count)
 
             elif current_header_height > self._stored_header_count:
 
