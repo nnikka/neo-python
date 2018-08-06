@@ -216,6 +216,8 @@ class SettingsHolder:
             host (string, optional): if supplied, uses this IP or domain as neo nodes. The host must
                                      use these standard ports: P2P 20333, RPC 30333.
         """
+
+        print("movida --- setup privenet ----")
         self.setup(FILENAME_SETTINGS_PRIVNET)
         if isinstance(host, str):
             if ":" in host:
@@ -311,6 +313,8 @@ class SettingsHolder:
         """
         rpc_settings.setup(self.RPC_LIST)
         client = RPCClient()
+
+        print("-----------check_privatenet----------")
 
         try:
             version = client.get_version()
