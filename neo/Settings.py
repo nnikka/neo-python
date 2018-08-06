@@ -315,6 +315,7 @@ class SettingsHolder:
         client = RPCClient()
 
         print("-----------check_privatenet----------")
+        print("------------MOVIDA MEORED------------giorgi----------")
 
         try:
             version = client.get_version()
