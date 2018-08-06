@@ -316,6 +316,8 @@ class SettingsHolder:
 
         print("-----------check_privatenet----------")
         print("------------MOVIDA MEORED------------giorgi----------")
+        print("------------MOVIDA MEORED------------giorgi-----meore----------")
+        print("------------MOVIDA MEORED------------giorgi-----mesame----------")
 
         try:
             version = client.get_version()
