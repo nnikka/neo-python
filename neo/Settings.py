@@ -319,6 +319,7 @@ class SettingsHolder:
         print("------------MOVIDA MEORED------------giorgi-----meore----------")
         print("------------MOVIDA MEORED------------giorgi-----mesame----------")
         print("------------MOVIDA MEORED------------giorgi-----mesamsadasdasde----------")
+        print("------------MOVIDA MEORED------------giorgi-----mesamsadasdasdesssss----------")
 
         try:
             version = client.get_version()
