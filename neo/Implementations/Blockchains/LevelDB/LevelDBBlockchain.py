@@ -183,10 +183,6 @@ class LevelDBBlockchain(Blockchain):
                     if h.Index > 0:
                         self._header_index.append(h.Hash.ToBytes())
 
-            print("heights")
-            print(current_header_hash)
-            print(self._stored_header_count)
-
             elif current_header_height > self._stored_header_count:
 
                 try:
